@@ -25,7 +25,7 @@ class CMB2_Taxonomy {
             return;
         }
 
-        $taxonomies = get_taxonomies(array(), 'names');
+        $taxonomies = get_taxonomies(array('public' => true), 'names');
 
         foreach($taxonomies as $taxonomy_name) {
             add_action( "{$taxonomy_name}_add_form_fields", array($this, 'render_meta_fields_add_form'), 10);
@@ -117,6 +117,10 @@ class CMB2_Taxonomy {
      */
     public function save_meta_data($term_id)
     {
+        if(!isset($_POST['taxonomy'])) {
+            return;
+        }
+
         $taxonomy_name = $_POST['taxonomy'];
 
         if ( ! current_user_can( get_taxonomy( $taxonomy_name )->cap->edit_terms ) ) {
