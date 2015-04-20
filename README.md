@@ -1,7 +1,7 @@
 # CMB2 Taxonomy
 
 **Contributors:**      [jcchavezs](https://github.com/jcchavezs)
-**Tags:**              metaboxes, forms, fields, options, settings
+**Tags:**              metaboxes, forms, fields, options, settings, taxonomy, term
 **Requires at least:** 3.8.0
 **Tested up to:**      4.1.0
 **Stable tag:**        0.1
@@ -9,7 +9,7 @@
 **License URI:**       [http://www.gnu.org/licenses/gpl-2.0.html](http://www.gnu.org/licenses/gpl-2.0.html)
 
 ## Description
-CMB2 Taxonomy will create metaboxes and forms with custom fields for your taxonomies using the [CMB2](https://github.com/WebDevStudios/CMB2) API.
+CMB2 Taxonomy will create metaboxes and forms with custom fields for your taxonomies using the [CMB2](https://github.com/WebDevStudios/CMB2) API (and yes, it will blow your mind too).
 
 To get started, please follow the examples in the included `example-functions.php` file and have a look at the [basic usage instructions](https://github.com/WebDevStudios/CMB2/wiki/Basic-Usage).
 

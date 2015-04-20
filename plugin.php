@@ -7,7 +7,7 @@
  * Author:       José Carlos Chávez <jcchavezs@gmail.com>
  * Author URI:   http://github.com/jcchavezs
  *
- * Version:      1.0.0
+ * Version:      1.0.1
  */
 
 /**
