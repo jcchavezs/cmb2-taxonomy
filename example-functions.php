@@ -5,17 +5,17 @@
  * @category YourThemeOrPlugin
  * @package  Metaboxes
  * @license  http://www.opensource.org/licenses/gpl-license.php GPL v2.0 (or later)
- * @link     https://github.com/webdevstudios/Custom-Metaboxes-and-Fields-for-WordPress
+ * @link     https://github.com/jcchavezs/cmb2-taxonomy
  */
 
 /**
- * Get the class! If using the plugin from wordpress.org, REMOVE THIS!
+ * Get the bootstrap! If using the plugin from wordpress.org, REMOVE THIS!
  */
-if ( !file_exists(  __DIR__ .'/includes/CMB2_Taxonomy.php' ) ) {
+if ( !file_exists(  __DIR__ .'/init.php' ) ) {
 	exit;
 }
 
-require_once  __DIR__ .'/includes/CMB2_Taxonomy.php';
+require_once  __DIR__ .'/init.php';
 
 add_filter('cmb2-taxonomy_meta_boxes', 'cmb2_taxonomy_sample_metaboxes');
 
