@@ -6,7 +6,8 @@
  * Description:  CMB2 Taxonomy will create metaboxes and forms with custom fields for your taxonomies using the CMB2 API.
  * Author:       José Carlos Chávez <jcchavezs@gmail.com>
  * Author URI:   http://github.com/jcchavezs
- *
+ * Github Plugin URI: https://github.com/jcchavezs/cmb2-taxonomy
+ * Github Branch: master
  * Version:      1.0.1
  */
 
