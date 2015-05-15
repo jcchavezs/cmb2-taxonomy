@@ -30,4 +30,4 @@ function cmb2_taxonomy_register_activation_hook() {
 
 register_activation_hook(__FILE__, 'cmb2_taxonomy_register_activation_hook');
 
-require_once __DIR__ . '/init.php';
+require_once dirname(__FILE__) . '/init.php';

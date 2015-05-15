@@ -11,11 +11,11 @@
 /**
  * Get the bootstrap! If using the plugin from wordpress.org, REMOVE THIS!
  */
-if ( !file_exists(  __DIR__ .'/init.php' ) ) {
+if ( !file_exists(  dirname(__FILE__) .'/init.php' ) ) {
 	exit;
 }
 
-require_once  __DIR__ .'/init.php';
+require_once  dirname(__FILE__) .'/init.php';
 
 add_filter('cmb2-taxonomy_meta_boxes', 'cmb2_taxonomy_sample_metaboxes');
 
