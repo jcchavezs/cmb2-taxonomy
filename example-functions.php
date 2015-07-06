@@ -36,7 +36,7 @@ function cmb2_taxonomy_sample_metaboxes( array $meta_boxes ) {
 	$meta_boxes['test_metabox'] = array(
 		'id'            => 'test_metabox',
 		'title'         => __( 'Test Metabox', 'cmb2' ),
-		'object_types'  => array( 'page', ), // Post type
+		'object_types'  => array( 'category', ), // Taxonomy
 		'context'       => 'normal',
 		'priority'      => 'high',
 		'show_names'    => true, // Show field names on the left
