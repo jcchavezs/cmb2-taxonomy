@@ -2,7 +2,7 @@
 
 /**
  * Retrieve metadata for the specified term.
- * *
+ *
  * @param int $term_id ID of the term metadata is for
  * @param string $meta_key Optional. Metadata key. If not specified, retrieve all metadata for
  * 		the specified term.
