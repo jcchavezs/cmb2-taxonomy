@@ -12,9 +12,49 @@
  */
 
 /**
- * Create the tables for the taxonomies metadata when activating the plugin.
+ * Call table creation function when activating the plugin.
  */
-function cmb2_taxonomy_register_activation_hook() {
+function cmb2_taxonomy_register_activation_hook( $network_wide = false ) {
+    global $wpdb;
+
+    /**
+     *  Check if install is multisite and plugin activation is network wide.
+     *  If so, loop all blogs in network to create table. Otherwise just
+     *  create table.
+     */
+    if( is_multisite() && $network_wide ) {
+        $current_blog = $wpdb->blogid;
+        $blog_ids = $wpdb->get_col( "SELECT blog_id FROM $wpdb->blogs" );
+
+        foreach( $blog_ids as $blog_id ) {
+            switch_to_blog( $blog_id );
+            cmb2_taxonomy_create_table();
+            restore_current_blog();
+        }
+    } else {
+        cmb2_taxonomy_create_table();
+    }
+}
+
+/**
+ *  Call table creation when new network blog is created
+ */
+function cmb2_taxonomy_on_create_blog( $blog_id, $user_id, $domain, $path, $site_id, $meta ) {
+    if( !function_exists( 'is_plugin_active_for_network' ) ) {
+        require_once( ABSPATH.'/wp-admin/includes/plugin.php' );
+    }
+
+    if( is_plugin_active_for_network( plugin_basename( __FILE__ ) ) ) {
+        switch_to_blog( $blog_id );
+        cmb2_taxonomy_create_table();
+        restore_current_blog();
+    }
+}
+
+/**
+ *  Create the tables for the taxonomies metadata
+ */
+function cmb2_taxonomy_create_table() {
     global $wpdb;
 
     $wpdb->query("CREATE TABLE IF NOT EXISTS `{$wpdb->prefix}termmeta` (
@@ -29,5 +69,7 @@ function cmb2_taxonomy_register_activation_hook() {
 }
 
 register_activation_hook(__FILE__, 'cmb2_taxonomy_register_activation_hook');
+add_action( 'wpmu_new_blog', 'cmb2_taxonomy_on_create_blog', 10, 6 );
+
 
 require_once dirname(__FILE__) . '/init.php';
