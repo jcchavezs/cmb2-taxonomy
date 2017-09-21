@@ -25,7 +25,7 @@ class CMB2_Taxonomy {
             return;
         }
 
-        $taxonomies = get_taxonomies(array('public' => true), 'names');
+        $taxonomies = get_taxonomies(null, 'names');
 
         foreach($taxonomies as $taxonomy_name) {
             add_action( "{$taxonomy_name}_add_form_fields", array($this, 'render_meta_fields_add_form'), 10);
